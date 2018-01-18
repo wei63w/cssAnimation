@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="A set of inspirational distorted button effects using SVG filters" />
+		<meta name="keywords" content="distorted, effect, button, svg, inspiration, filter, web design" />
+		<title>buttonAnimation</title>
+		
+		<!--[if IE]>
+			<script src="http://www.jq22.com/jquery/html5.min.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" type="text/css" href="css/button.css"/>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<div class="container">
+			<section class="section">
+					<h3 class="section__title">01</h3>
+					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
+						<defs>
+							<filter id="filter-goo-1">
+								<feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
+								<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+								<feComposite in="SourceGraphic" in2="goo" />
+							</filter>
+						</defs>
+					</svg>
+					<button id="component-1" class="button button--1">
+						Click me
+						<span class="button__container">
+							<span class="circle top-left"></span>
+							<span class="circle top-left"></span>
+							<span class="circle top-left"></span>
+							<span class="button__bg"></span>
+							<span class="circle bottom-right"></span>
+							<span class="circle bottom-right"></span>
+							<span class="circle bottom-right"></span>
+						</span>
+					</button>
+				</section>
+				<section class="section">
+					<h3 class="section__title">02</h3>
+					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
+						<defs>
+							<filter id="filter-goo-2">
+								<feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
+								<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+								<feComposite in="SourceGraphic" in2="goo" />
+							</filter>
+						</defs>
+					</svg>
+					<button id="component-2" class="button button--2" style="filter: url('#filter-goo-2')">
+						Click me
+						<span class="button__bg"></span>
+					</button>
+				</section>
+				<section class="section">
+					<h3 class="section__title">03</h3>
+					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
+						<defs>
+							<filter id="filter-goo-3">
+								<feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
+								<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+								<feComposite in="SourceGraphic" in2="goo" />
+							</filter>
+						</defs>
+					</svg>
+					<button id="component-3" class="button button--2 button--3" style="filter: url('#filter-goo-3')">
+						Click me
+						<span class="button__bg"></span>
+					</button>
+				</section>
+				<section class="section">
+					<h3 class="section__title">04</h3>
+					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
+						<defs>
+							<filter id="filter-goo-4">
+								<feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
+								<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+							</filter>
+						</defs>
+					</svg>
+					<button id="component-4" class="button button--4">
+						click
+						<span class="button__bg" style="filter: url('#filter-goo-4')">
+						<span class="blob"></span>
+						<span class="blob"></span>
+						<span class="blob"></span>
+						<span class="blob"></span>
+						</span>
+					</button>
+				</section>
+				<section class="section">
+					<h3 class="section__title">05</h3>
+					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
+						<defs>
+							<filter id="filter-glitch-1">
+								<feTurbulence type="fractalNoise" baseFrequency="0.000001" numOctaves="1" result="warp" />
+								<feOffset dx="-90" dy="-90" result="warpOffset" />
+								<feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="30" in="SourceGraphic" in2="warpOffset" />
+							</filter>
+						</defs>
+					</svg>
+					<button id="component-5" class="button button--5">Click me</button>
+				</section>
+				<section class="section">
+					<h3 class="section__title">06</h3>
+					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
+						<defs>
+							<filter id="filter-glitch-2">
+								<feTurbulence type="fractalNoise" baseFrequency="0.000001" numOctaves="1" result="warp" />
+								<feOffset dx="-90" dy="-90" result="warpOffset" />
+								<feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="30" in="SourceGraphic" in2="warpOffset" />
+							</filter>
+						</defs>
+					</svg>
+					<button id="component-6" class="button button--6">Click me</button>
+				</section>
+		</div>
+		
+		
+		<script src="js/TweenMax.js"></script>
+		<script src="js/button.js"></script>
+		
+	</body>
+</html>
