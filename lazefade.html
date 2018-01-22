@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>延迟加载并渐现内容的jquery插件lazyFade</title>
+    <!--<script src="http://www.jq22.com/jquery/2.1.1/jquery.min.js"></script>-->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script>
+    		
+
+(function ($) {
+
+	var lazyFade = {
+
+	
+		settings: {
+			reverse: false,
+			duration: 500,
+			delay: 50,
+			opacity: {
+				start: 0.01,
+				end: 1
+			}
+		},
+
+
+		init: function (options) {
+			var	settings	= $.extend(lazyFade.settings, options),
+				index		= (settings.reverse === true) ? this.length : 0;
+
+			return this.each(function () {
+				var $this	= $(this);
+
+				lazyFade.fade($this, settings, index);
+				(settings.reverse === true) ? --index : ++index;
+			});
+		},
+
+
+		fade: function ($object, settings, index) {
+			$object.fadeTo(0, settings.opacity.start);
+			$object.delay(settings.delay * index).fadeTo(settings.duration, settings.opacity.end);
+		}
+
+	};
+
+	$.fn.lazyFade = function (method) {
+		if (lazyFade[method]) {
+			return lazyFade[method].apply(this, Array.prototype.slice.call(arguments, 1));
+		}
+		else if (typeof method === 'object' || !method) {
+			return lazyFade.init.apply(this, arguments);
+		}
+		else {
+			return $.error('Method ' + method + ' does not exist on jQuery.lazyFade');
+		}
+	};
+
+})(jQuery);
+    </script>
+    <script>
+        $(function() {
+            $(".list-group div").lazyFade({
+                reverse: false,
+                duration: 250,
+                delay: 50,
+                opacity: {
+                    start: 0.01,
+                    end: 1
+                }
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <section class="container">
+        <h4>以下内容将延迟加载并渐现</h4> 
+        <div class="list-group">
+            <div class="list-group-item">Porta ac consectetur ac</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="list-group-item">Morbi leo risus</div>
+            <div class="list-group-item">Porta ac consectetur ac</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="em">Porta ac consectetur ac</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="list-group-item">Morbi leo risus</div>
+            <div class="em">Porta ac consectetur ac</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="list-group-item">Morbi leo risus</div>
+            <div class="list-group-item">Porta ac consectetur ac</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="list-group-item">Morbi leo risus</div>
+            <div class="list-group-item">Porta ac consectetur ac</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="list-group-item">Porta ac consectetur ac</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="list-group-item">Morbi leo risus</div>
+            <div class="list-group-item">Porta ac consectetur ac</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="em">Porta ac consectetur ac</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="list-group-item">Morbi leo risus</div>
+            <div class="em">Porta ac consectetur ac</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="list-group-item">Morbi leo risus</div>
+            <div class="list-group-item">Porta ac consectetur ac</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="list-group-item">Morbi leo risus</div>
+            <div class="list-group-item">Porta ac consectetur ac</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="list-group-item">Porta ac consectetur ac</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="list-group-item">Morbi leo risus</div>
+            <div class="list-group-item">Porta ac consectetur ac</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="em">Porta ac consectetur ac</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="list-group-item">Morbi leo risus</div>
+            <div class="em">Porta ac consectetur ac</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="list-group-item">Morbi leo risus</div>
+            <div class="list-group-item">Porta ac consectetur ac</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+            <div class="list-group-item">Morbi leo risus</div>
+            <div class="list-group-item">Porta ac consectetur ac</div>
+            <div class="list-group-item">Vestibulum at eros</div>
+        </div>
+    </section>
+</body>
+
+</html>
